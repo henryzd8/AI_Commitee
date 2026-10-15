@@ -1,0 +1,73 @@
+# Candidate models (design §4.6). The lead confirms the final 4 before exploration.
+# revision / weights_sha256: written by `pu download-weights` (pins the exact commit).
+# support: filled by Task 2's chat-template support matrix (true/false). A model must support
+#   C3 and C4 to be eligible. Builder refuses to build while support is unknown (null).
+# Gated repos need the license accepted on huggingface.co and HF_TOKEN set.
+models:
+- id: m1
+  hf_repo: Qwen/Qwen3-8B
+  revision: null
+  weights_sha256: null
+  size_class: 8b
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  quantization: null
+  max_model_len: 8192
+  chat_template_kwargs: {enable_thinking: false}
+  support: {C1: null, C2: null, C3: null, C4: null}
+  gated: false
+  role: candidate
+- id: m2
+  hf_repo: meta-llama/Llama-3.1-8B-Instruct
+  revision: null
+  weights_sha256: null
+  size_class: 8b
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  quantization: null
+  max_model_len: 8192
+  chat_template_kwargs: {}
+  support: {C1: null, C2: null, C3: null, C4: null}
+  gated: true
+  role: candidate
+- id: m3
+  hf_repo: mistralai/Mistral-Small-24B-Instruct-2501
+  revision: null
+  weights_sha256: null
+  size_class: 24b
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  quantization: null
+  max_model_len: 8192
+  chat_template_kwargs: {}
+  support: {C1: null, C2: null, C3: null, C4: null}
+  gated: false
+  role: candidate
+- id: m4
+  hf_repo: google/gemma-3-27b-it
+  revision: null
+  weights_sha256: null
+  size_class: 27b
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  quantization: null
+  max_model_len: 8192
+  chat_template_kwargs: {}
+  support: {C1: null, C2: null, C3: null, C4: null}
+  gated: true
+  role: candidate
+  notes: "Eligible only if its chat template supports tool messages (C3)."
+- id: m4alt
+  hf_repo: allenai/OLMo-2-0325-32B-Instruct
+  revision: null
+  weights_sha256: null
+  size_class: 32b
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  quantization: null
+  max_model_len: 8192
+  chat_template_kwargs: {}
+  support: {C1: null, C2: null, C3: null, C4: null}
+  gated: false
+  role: alternate
+  notes: "Alternate fourth model if Gemma lacks tool support."
