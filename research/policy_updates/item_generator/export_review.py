@@ -29,5 +29,5 @@ for i,f in enumerate(families()):
             lines += [f"**Sample {j+1}.** {item['problem']}",'',
                       f"Steps: {', '.join(str(v) for v in item['intermediate_values'].values())}. **Final answer: {item['final_answer']}.**",'']
 with Path('FAMILY_REVIEW.md').open('x',encoding='utf-8') as stream:
-    stream.write('\n'.join(lines)+'\n')
+    stream.write('\n'.join(lines).rstrip()+'\n')
 print('Exported 400 review-only samples across 80 candidate families.')

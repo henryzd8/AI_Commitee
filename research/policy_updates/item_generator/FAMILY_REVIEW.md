@@ -2021,4 +2021,3 @@ Steps: 1072, 1150, 1090. **Final answer: 1077.**
 **Sample 5.** An inventory exercise concerns model railway tracks. Start with 111 units. Multiply the current quantity by 7. Add 46. Remove 21. Remove 44. How many units remain?
 
 Steps: 777, 823, 802. **Final answer: 758.**
-
