@@ -1,5 +1,13 @@
 # Development verification — 2026-10-14
 
+## Separate task-5 package
+
+The task-5 submission contains 14 focused tests, all passing after separating it
+from task 1. Its CLI and blinding helper no longer import the item generator.
+The numerical algorithms are unchanged. The combined implementation checks below
+remain provenance for the original verification, not a claim that this PR contains
+task 1's tests or generator.
+
 ## Executed checks
 
 - 19 new tests pass, plus all 28 existing checker tests (47 total).
