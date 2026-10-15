@@ -1,0 +1,54 @@
+# Run configuration (Task 3). Values marked DESIGN come from policy_updates_workshop_design.md
+# and may only change with a DEVIATIONS.md entry. Values marked ASSUMPTION are estimates to be
+# replaced with measured numbers after the first real-model smoke test.
+
+sampling:
+  temperature: 0.7          # DESIGN §4.6
+  max_tokens: 1024          # DESIGN §4.6 (max visible tokens)
+  retry_max_tokens: 2048    # DESIGN §4.5 (one retry at double budget)
+
+thinking: off               # DESIGN §4.6; enforced by the renderer (Task 2), guarded by the runner
+
+primary_channels: [C3, C4]  # DESIGN §4.3
+
+recognition:                # DESIGN §4.4
+  items_per_direction: 150
+  samples: 3
+  # "split": each item is asked in one of C3/C4 (matches the design's ~0.9k recognition calls).
+  # "both": every item in both channels (doubles the calls). Lead to confirm.
+  channel_assignment: split
+  # Calibration ("uses the static cells"): implemented as the NOOP x NEW-SELF prefix + the same
+  # question, on the same items. Lead to confirm this reading of the design.
+  calibration: true
+
+descriptive:                # DESIGN §4.4
+  items_per_direction: 300
+  channels: [C1, C2]        # C2 skipped for models whose template does not support it
+
+c4_clock:                   # DRAFT convention (handbook §5.2), co-owned with Task 2
+  base: "2027-03-01 14:00"
+  switch_spacing_min: 5
+  gap_min: 10
+  noop_spacing_min: 1
+  noop_offset_min: 2
+
+runner:
+  batch_size: 256           # checkpoint granularity; vLLM batches internally
+
+splits:                     # DESIGN §4.1 (item generation itself is Task 1's)
+  families: 40
+  shared_families: 32
+  screen_items_per_family: 40
+  manip_items: 100
+  explore_items: 100
+  confirm_items: 600
+
+estimate:                   # ASSUMPTIONS for the GPU-hour estimate
+  completion_tokens: {probe: 350, recog: 10, history_turn: 300}
+  prefix_cache_hit: 0.3     # fraction of prompt tokens served from the prefix cache
+  truncation_rate: 0.05     # extra calls from retries
+  throughput:               # aggregate tokens/s under batched vLLM; replace after smoke test
+    8b:  {gpu: L4-24GB, prefill_tps: 4000, decode_tps: 800}
+    24b: {gpu: A100-80GB, prefill_tps: 5000, decode_tps: 900}
+    27b: {gpu: A100-80GB, prefill_tps: 4000, decode_tps: 700}
+    32b: {gpu: A100-80GB, prefill_tps: 4000, decode_tps: 700}
