@@ -1,55 +1,90 @@
+"""Small task-oriented CLI; old commands remain available."""
 import argparse
-import json
-from pathlib import Path
 from . import generator
+from .catalog import get_family, load_families
+from .files import read_json, read_rows, write, write_bundle
 
-def read(path):
-    return json.loads(Path(path).read_text(encoding='utf-8-sig'))
 
-def rows(path):
-    return [json.loads(line) for line in Path(path).read_text(encoding='utf-8-sig').splitlines() if line.strip()]
+def parser():
+    root=argparse.ArgumentParser(description='Preview families, prepare study inputs, and export review samples.')
+    commands=root.add_subparsers(dest='command',required=True)
+    commands.add_parser('list',help='List family IDs and contexts.')
+    preview=commands.add_parser('preview',help='See sample problems without writing a dataset.')
+    preview.add_argument('family',help='Probe family ID, for example F01.')
+    preview.add_argument('--seed',default='preview-v0')
+    preview.add_argument('--count',type=int,default=3)
+    preview.add_argument('--history',action='store_true')
+    review=commands.add_parser('review',help='Write a Markdown review pack for the committee.')
+    review.add_argument('output'); review.add_argument('--samples',type=int,default=5)
+    review.add_argument('--seed',default='committee-review-v0')
+    for command in ('prepare','generate'):
+        cmd=commands.add_parser(command,help='Prepare raw + runner files together.' if command=='prepare' else 'Generate raw probe JSONL only.')
+        cmd.add_argument('split',choices=generator.SPLITS)
+        cmd.add_argument('output'); cmd.add_argument('--seed',required=True)
+        cmd.add_argument('--registration',help='Actual preregistration record (required for confirmation).')
+    families=commands.add_parser('families',help='Export family definitions and freeze hashes.')
+    families.add_argument('output')
+    for command in ('histories','collisions'):
+        cmd=commands.add_parser(command)
+        cmd.add_argument('input'); cmd.add_argument('output')
+        if command=='collisions':
+            cmd.add_argument('--registration',help='Required when replacing confirmatory probes.')
+    adapter=commands.add_parser('export-harness',help='Export existing raw files to task 3, including replacements.')
+    adapter.add_argument('probes'); adapter.add_argument('histories'); adapter.add_argument('directory')
+    return root
 
-def write(path, value, jsonl=False):
-    target = Path(path)
-    target.parent.mkdir(parents=True, exist_ok=True)
-    with target.open('x', encoding='utf-8') as stream:
-        if jsonl:
-            for r in value:
-                stream.write(json.dumps(r, allow_nan=False) + '\n')
+
+def run(args):
+    if args.command=='list':
+        for family in load_families():
+            print(f"{family.family_id}  {family.probe.domain} -> {family.history_family_id}: {family.history.domain}"+
+                  (' [held out]' if family.heldout else ''))
+    elif args.command=='preview':
+        if not 1 <= args.count <= 100:
+            raise ValueError('Choose between 1 and 100 preview samples.')
+        family=get_family(args.family)
+        for index in range(args.count):
+            row=family.generate(seed=args.seed,index=index,history=args.history)
+            print(f"\n{row['item_id']}\n{row['problem']}\nIntermediate values: {row['intermediate_values']}\nFinal answer: {row['final_answer']}")
+    elif args.command=='review':
+        from .review import export_review
+        export_review(args.output,args.samples,args.seed)
+        print(f'Review-only examples saved to {args.output}.')
+    elif args.command in ('prepare','generate'):
+        registration=read_json(args.registration) if args.registration else None
+        if args.command=='prepare':
+            from .workflow import prepare
+            probes,histories=prepare(args.split,args.seed,args.output,registration)
+            print(f'Prepared {probes} probes and {histories} history problems in {args.output}.')
+            print('Use items.jsonl and history_items.jsonl with task 3. History collision checks remain pending.')
         else:
-            json.dump(value, stream, indent=2, allow_nan=False)
+            write(args.output,generator.generate(args.split,args.seed,registration),True)
+    elif args.command=='families':
+        write(args.output,{'families':generator.families(),'definitions':[f.describe() for f in load_families()],
+                          'family_hash':generator.digest(generator.families()),'generator_hash':generator.source_hash(),
+                          'paraphrases':generator.PARAPHRASES})
+    elif args.command=='histories':
+        write(args.output,generator.generate_histories(read_rows(args.input)),True)
+    elif args.command=='collisions':
+        registration=read_json(args.registration) if args.registration else None
+        write(args.output,[generator.replace_collision(row['probe'],row['histories'],registration=registration) for row in read_rows(args.input)],True)
+    elif args.command=='export-harness':
+        from .harness_export import export
+        probes,histories=export(read_rows(args.probes),read_rows(args.histories))
+        write_bundle(args.directory,{'items.jsonl':(probes,True),'history_items.jsonl':(histories,True)},
+                     {'generator_hash':generator.source_hash(),'probe_count':len(probes),'history_count':len(histories)})
+
 
 def main():
-    parser = argparse.ArgumentParser(description='Policy-update development tooling')
-    commands = parser.add_subparsers(dest='command', required=True)
-    g = commands.add_parser('generate')
-    g.add_argument('split', choices=['screening', 'exploration', 'manipulation', 'validation', 'confirmatory'])
-    g.add_argument('output')
-    g.add_argument('--seed', required=True)
-    g.add_argument('--registration')
-    f = commands.add_parser('families')
-    f.add_argument('output')
-    h = commands.add_parser('histories')
-    h.add_argument('input')
-    h.add_argument('output')
-    c = commands.add_parser('collisions')
-    c.add_argument('input')
-    c.add_argument('output')
-    args = parser.parse_args()
-    if args.command == 'generate':
-        result = generator.generate(args.split, args.seed, read(args.registration) if args.registration else None)
-        write(args.output, result, True)
-    elif args.command == 'families':
-        write(args.output, {'families': generator.families(), 'family_hash': generator.digest(generator.families()), 'generator_hash': generator.source_hash(), 'paraphrases': generator.PARAPHRASES})
-    elif args.command == 'histories':
-        probes = rows(args.input)
-        result = []
-        for p in probes:
-            for turn in range(4):
-                r = generator.instance(int(p['family_id'][1:]) - 1, p['split'] + '-history', p['seed'] + ':' + p['item_id'], turn, True)
-                result.append({**r, 'probe_item_id': p['item_id'], 'history_turn': turn + 1})
-        write(args.output, result, True)
-    elif args.command == 'collisions':
-        write(args.output, [generator.replace_collision(r['probe'], r['histories']) for r in rows(args.input)], True)
-if __name__ == '__main__':
+    cli=parser()
+    args=cli.parse_args()
+    try:
+        run(args)
+    except KeyError as exc:
+        cli.error(f'Missing required field: {exc.args[0]}. See README.md for the input format.')
+    except (ValueError,OSError) as exc:
+        cli.error(str(exc))
+
+
+if __name__=='__main__':
     main()

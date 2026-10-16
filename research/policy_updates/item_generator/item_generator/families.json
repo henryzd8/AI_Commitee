@@ -1,0 +1,1042 @@
+[
+  {
+    "family_id": "F01",
+    "history_family_id": "H01",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "library books",
+      "operations": [
+        "add",
+        "add",
+        "add",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "observatory star cards",
+      "operations": [
+        "sub",
+        "add",
+        "mul",
+        "sub"
+      ]
+    },
+    "seed_slot": 0
+  },
+  {
+    "family_id": "F02",
+    "history_family_id": "H02",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "bakery rolls",
+      "operations": [
+        "add",
+        "add",
+        "sub",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "harbor rope coils",
+      "operations": [
+        "sub",
+        "add",
+        "mul",
+        "mul"
+      ]
+    },
+    "seed_slot": 1
+  },
+  {
+    "family_id": "F03",
+    "history_family_id": "H03",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "orchard apples",
+      "operations": [
+        "add",
+        "add",
+        "mul",
+        "add"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "aviary perches",
+      "operations": [
+        "sub",
+        "add",
+        "mul",
+        "div"
+      ]
+    },
+    "seed_slot": 2
+  },
+  {
+    "family_id": "F04",
+    "history_family_id": "H04",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "museum tickets",
+      "operations": [
+        "add",
+        "add",
+        "mul",
+        "sub"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "weaving studio spools",
+      "operations": [
+        "sub",
+        "add",
+        "div",
+        "mul"
+      ]
+    },
+    "seed_slot": 3
+  },
+  {
+    "family_id": "F05",
+    "history_family_id": "H05",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "school pencils",
+      "operations": [
+        "add",
+        "add",
+        "mul",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "dance school ribbons",
+      "operations": [
+        "sub",
+        "sub",
+        "add",
+        "mul"
+      ]
+    },
+    "seed_slot": 4
+  },
+  {
+    "family_id": "F06",
+    "history_family_id": "H06",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "theater seats",
+      "operations": [
+        "add",
+        "add",
+        "mul",
+        "div"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "boat workshop pegs",
+      "operations": [
+        "sub",
+        "sub",
+        "sub",
+        "mul"
+      ]
+    },
+    "seed_slot": 5
+  },
+  {
+    "family_id": "F07",
+    "history_family_id": "H07",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "farm eggs",
+      "operations": [
+        "add",
+        "add",
+        "div",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "chess club tokens",
+      "operations": [
+        "sub",
+        "sub",
+        "mul",
+        "add"
+      ]
+    },
+    "seed_slot": 6
+  },
+  {
+    "family_id": "F08",
+    "history_family_id": "H08",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "warehouse parcels",
+      "operations": [
+        "add",
+        "sub",
+        "add",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "radio station labels",
+      "operations": [
+        "sub",
+        "sub",
+        "mul",
+        "sub"
+      ]
+    },
+    "seed_slot": 7
+  },
+  {
+    "family_id": "F09",
+    "history_family_id": "H09",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "aquarium feed portions",
+      "operations": [
+        "add",
+        "sub",
+        "sub",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "tea shop packets",
+      "operations": [
+        "sub",
+        "sub",
+        "mul",
+        "mul"
+      ]
+    },
+    "seed_slot": 8
+  },
+  {
+    "family_id": "F10",
+    "history_family_id": "H10",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "garden seeds",
+      "operations": [
+        "add",
+        "sub",
+        "mul",
+        "add"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "costume studio pins",
+      "operations": [
+        "sub",
+        "sub",
+        "mul",
+        "div"
+      ]
+    },
+    "seed_slot": 9
+  },
+  {
+    "family_id": "F11",
+    "history_family_id": "H11",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "cafe cups",
+      "operations": [
+        "add",
+        "sub",
+        "mul",
+        "sub"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "robotics club gears",
+      "operations": [
+        "sub",
+        "sub",
+        "div",
+        "mul"
+      ]
+    },
+    "seed_slot": 10
+  },
+  {
+    "family_id": "F12",
+    "history_family_id": "H12",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "factory bolts",
+      "operations": [
+        "add",
+        "sub",
+        "mul",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "quilt guild patches",
+      "operations": [
+        "sub",
+        "mul",
+        "add",
+        "add"
+      ]
+    },
+    "seed_slot": 11
+  },
+  {
+    "family_id": "F13",
+    "history_family_id": "H13",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "stadium programs",
+      "operations": [
+        "add",
+        "sub",
+        "mul",
+        "div"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "airport luggage tags",
+      "operations": [
+        "sub",
+        "mul",
+        "add",
+        "sub"
+      ]
+    },
+    "seed_slot": 12
+  },
+  {
+    "family_id": "F14",
+    "history_family_id": "H14",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "bookshop bookmarks",
+      "operations": [
+        "add",
+        "sub",
+        "div",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "archaeology camp flags",
+      "operations": [
+        "sub",
+        "mul",
+        "add",
+        "mul"
+      ]
+    },
+    "seed_slot": 13
+  },
+  {
+    "family_id": "F15",
+    "history_family_id": "H15",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "clinic bandages",
+      "operations": [
+        "add",
+        "mul",
+        "add",
+        "add"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "mountain lodge candles",
+      "operations": [
+        "sub",
+        "mul",
+        "add",
+        "div"
+      ]
+    },
+    "seed_slot": 14
+  },
+  {
+    "family_id": "F16",
+    "history_family_id": "H16",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "charity meals",
+      "operations": [
+        "add",
+        "mul",
+        "add",
+        "sub"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "soap workshop bars",
+      "operations": [
+        "sub",
+        "mul",
+        "sub",
+        "add"
+      ]
+    },
+    "seed_slot": 15
+  },
+  {
+    "family_id": "F17",
+    "history_family_id": "H17",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "pottery tiles",
+      "operations": [
+        "add",
+        "mul",
+        "add",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "glass studio beads",
+      "operations": [
+        "sub",
+        "mul",
+        "sub",
+        "sub"
+      ]
+    },
+    "seed_slot": 16
+  },
+  {
+    "family_id": "F18",
+    "history_family_id": "H18",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "cycling club badges",
+      "operations": [
+        "add",
+        "mul",
+        "add",
+        "div"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "puppet theater strings",
+      "operations": [
+        "sub",
+        "mul",
+        "sub",
+        "mul"
+      ]
+    },
+    "seed_slot": 17
+  },
+  {
+    "family_id": "F19",
+    "history_family_id": "H19",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "camp blankets",
+      "operations": [
+        "add",
+        "mul",
+        "sub",
+        "add"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "weather station chart pages",
+      "operations": [
+        "sub",
+        "mul",
+        "sub",
+        "div"
+      ]
+    },
+    "seed_slot": 18
+  },
+  {
+    "family_id": "F20",
+    "history_family_id": "H20",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "market oranges",
+      "operations": [
+        "add",
+        "mul",
+        "sub",
+        "sub"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "surf school fins",
+      "operations": [
+        "sub",
+        "mul",
+        "mul",
+        "add"
+      ]
+    },
+    "seed_slot": 19
+  },
+  {
+    "family_id": "F21",
+    "history_family_id": "H21",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "art studio brushes",
+      "operations": [
+        "add",
+        "mul",
+        "sub",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "leather workshop buckles",
+      "operations": [
+        "sub",
+        "mul",
+        "mul",
+        "sub"
+      ]
+    },
+    "seed_slot": 20
+  },
+  {
+    "family_id": "F22",
+    "history_family_id": "H22",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "music school sheets",
+      "operations": [
+        "add",
+        "mul",
+        "sub",
+        "div"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "stamp club albums",
+      "operations": [
+        "sub",
+        "mul",
+        "mul",
+        "mul"
+      ]
+    },
+    "seed_slot": 21
+  },
+  {
+    "family_id": "F23",
+    "history_family_id": "H23",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "zoo leaf bundles",
+      "operations": [
+        "add",
+        "mul",
+        "mul",
+        "add"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "ferry kiosk coupons",
+      "operations": [
+        "sub",
+        "mul",
+        "mul",
+        "div"
+      ]
+    },
+    "seed_slot": 22
+  },
+  {
+    "family_id": "F24",
+    "history_family_id": "H24",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "beach cleanup bags",
+      "operations": [
+        "add",
+        "mul",
+        "mul",
+        "sub"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "choir folders",
+      "operations": [
+        "sub",
+        "mul",
+        "div",
+        "add"
+      ]
+    },
+    "seed_slot": 23
+  },
+  {
+    "family_id": "F25",
+    "history_family_id": "H25",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "science lab slides",
+      "operations": [
+        "add",
+        "mul",
+        "mul",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "film archive reels",
+      "operations": [
+        "sub",
+        "mul",
+        "div",
+        "sub"
+      ]
+    },
+    "seed_slot": 24
+  },
+  {
+    "family_id": "F26",
+    "history_family_id": "H26",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "village lanterns",
+      "operations": [
+        "add",
+        "mul",
+        "mul",
+        "div"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "spice stall jars",
+      "operations": [
+        "sub",
+        "mul",
+        "div",
+        "mul"
+      ]
+    },
+    "seed_slot": 25
+  },
+  {
+    "family_id": "F27",
+    "history_family_id": "H27",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "food bank cans",
+      "operations": [
+        "add",
+        "mul",
+        "div",
+        "add"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "astronomy club lenses",
+      "operations": [
+        "sub",
+        "mul",
+        "div",
+        "div"
+      ]
+    },
+    "seed_slot": 26
+  },
+  {
+    "family_id": "F28",
+    "history_family_id": "H28",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "tailor buttons",
+      "operations": [
+        "add",
+        "mul",
+        "div",
+        "sub"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "skating rink laces",
+      "operations": [
+        "sub",
+        "div",
+        "add",
+        "mul"
+      ]
+    },
+    "seed_slot": 27
+  },
+  {
+    "family_id": "F29",
+    "history_family_id": "H29",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "sports club balls",
+      "operations": [
+        "add",
+        "mul",
+        "div",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "marionette workshop joints",
+      "operations": [
+        "sub",
+        "div",
+        "sub",
+        "mul"
+      ]
+    },
+    "seed_slot": 28
+  },
+  {
+    "family_id": "F30",
+    "history_family_id": "H30",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "flower shop stems",
+      "operations": [
+        "add",
+        "mul",
+        "div",
+        "div"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "coral nursery plugs",
+      "operations": [
+        "sub",
+        "div",
+        "mul",
+        "add"
+      ]
+    },
+    "seed_slot": 29
+  },
+  {
+    "family_id": "F31",
+    "history_family_id": "H31",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "printing shop posters",
+      "operations": [
+        "add",
+        "div",
+        "add",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "metal shop washers",
+      "operations": [
+        "sub",
+        "div",
+        "mul",
+        "sub"
+      ]
+    },
+    "seed_slot": 30
+  },
+  {
+    "family_id": "F32",
+    "history_family_id": "H32",
+    "heldout": false,
+    "probe": {
+      "type": "inventory",
+      "domain": "railway passes",
+      "operations": [
+        "add",
+        "div",
+        "sub",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "kite workshop spars",
+      "operations": [
+        "sub",
+        "div",
+        "mul",
+        "mul"
+      ]
+    },
+    "seed_slot": 31
+  },
+  {
+    "family_id": "F33",
+    "history_family_id": "H33",
+    "heldout": true,
+    "probe": {
+      "type": "inventory",
+      "domain": "community center chairs",
+      "operations": [
+        "add",
+        "div",
+        "mul",
+        "add"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "mineral club sample boxes",
+      "operations": [
+        "sub",
+        "div",
+        "mul",
+        "div"
+      ]
+    },
+    "seed_slot": 32
+  },
+  {
+    "family_id": "F34",
+    "history_family_id": "H34",
+    "heldout": true,
+    "probe": {
+      "type": "inventory",
+      "domain": "toy shop blocks",
+      "operations": [
+        "add",
+        "div",
+        "mul",
+        "sub"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "dollhouse studio panels",
+      "operations": [
+        "sub",
+        "div",
+        "div",
+        "mul"
+      ]
+    },
+    "seed_slot": 33
+  },
+  {
+    "family_id": "F35",
+    "history_family_id": "H35",
+    "heldout": true,
+    "probe": {
+      "type": "inventory",
+      "domain": "recycling center bottles",
+      "operations": [
+        "add",
+        "div",
+        "mul",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "candle shop wicks",
+      "operations": [
+        "mul",
+        "add",
+        "add",
+        "add"
+      ]
+    },
+    "seed_slot": 34
+  },
+  {
+    "family_id": "F36",
+    "history_family_id": "H36",
+    "heldout": true,
+    "probe": {
+      "type": "inventory",
+      "domain": "festival wristbands",
+      "operations": [
+        "add",
+        "div",
+        "mul",
+        "div"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "trail crew stakes",
+      "operations": [
+        "mul",
+        "add",
+        "add",
+        "sub"
+      ]
+    },
+    "seed_slot": 35
+  },
+  {
+    "family_id": "F37",
+    "history_family_id": "H37",
+    "heldout": true,
+    "probe": {
+      "type": "inventory",
+      "domain": "school cafeteria trays",
+      "operations": [
+        "add",
+        "div",
+        "div",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "embroidery club hoops",
+      "operations": [
+        "mul",
+        "add",
+        "add",
+        "mul"
+      ]
+    },
+    "seed_slot": 36
+  },
+  {
+    "family_id": "F38",
+    "history_family_id": "H38",
+    "heldout": true,
+    "probe": {
+      "type": "inventory",
+      "domain": "pet shelter towels",
+      "operations": [
+        "sub",
+        "add",
+        "add",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "paper mill bundles",
+      "operations": [
+        "mul",
+        "add",
+        "add",
+        "div"
+      ]
+    },
+    "seed_slot": 37
+  },
+  {
+    "family_id": "F39",
+    "history_family_id": "H39",
+    "heldout": true,
+    "probe": {
+      "type": "inventory",
+      "domain": "hardware shop screws",
+      "operations": [
+        "sub",
+        "add",
+        "sub",
+        "mul"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "water station filters",
+      "operations": [
+        "mul",
+        "add",
+        "sub",
+        "add"
+      ]
+    },
+    "seed_slot": 38
+  },
+  {
+    "family_id": "F40",
+    "history_family_id": "H40",
+    "heldout": true,
+    "probe": {
+      "type": "inventory",
+      "domain": "hiking club maps",
+      "operations": [
+        "sub",
+        "add",
+        "mul",
+        "add"
+      ]
+    },
+    "history": {
+      "type": "inventory",
+      "domain": "model railway tracks",
+      "operations": [
+        "mul",
+        "add",
+        "sub",
+        "sub"
+      ]
+    },
+    "seed_slot": 39
+  }
+]

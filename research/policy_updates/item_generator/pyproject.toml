@@ -4,6 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "policy-update-item-generator"
-version = "0.1.0"
+version = "0.2.0"
 requires-python = ">=3.10"
 dependencies = []
+
+[project.scripts]
+policy-items = "item_generator.__main__:main"
+
+[tool.setuptools.package-data]
+item_generator = ["families.json"]
+
+[tool.setuptools.packages.find]
+include = ["item_generator*"]

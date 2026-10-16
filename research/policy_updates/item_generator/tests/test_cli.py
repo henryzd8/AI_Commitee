@@ -18,3 +18,11 @@ class CliTests(unittest.TestCase):
             self.assertEqual(len(probes),100)
             self.assertEqual(len(histories),400)
             self.assertEqual({h['probe_item_id'] for h in histories},{p['item_id'] for p in probes})
+            subprocess.run([sys.executable,'-m','item_generator','export-harness',str(root/'probes.jsonl'),str(root/'histories.jsonl'),str(root/'export')],check=True,capture_output=True)
+            sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'harness'/'src'))
+            from pu.schemas import Item, from_dict
+            exported=[from_dict(Item,json.loads(line)) for line in (root/'export'/'items.jsonl').read_text().splitlines()]
+            history_exported=[from_dict(Item,json.loads(line)) for line in (root/'export'/'history_items.jsonl').read_text().splitlines()]
+            self.assertEqual(len(exported),100)
+            self.assertTrue(all(len(p.history_item_ids)==4 for p in exported))
+            self.assertEqual({h.item_id for h in history_exported},{h for p in exported for h in p.history_item_ids})
